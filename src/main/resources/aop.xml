@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd"
+
+
+
+
+
+>
+
+
+    <context:component-scan base-package="org.trahim.spring.*"/>
+
+    <aop:config>
+        <aop:aspect id="log" ref="myAOPLogger">
+            <aop:pointcut id="getValue" expression="execution(int org.trahim.spring.service.MyService.*(..))"/>
+            <aop:before method="init" pointcut-ref="getValue"/>
+            <aop:after method="close" pointcut-ref="getValue"/>
+            <aop:after-returning method="printValue" pointcut-ref="getValue" returning="o"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
