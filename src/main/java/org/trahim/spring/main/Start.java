@@ -9,6 +9,7 @@ public class Start {
         ApplicationContext context = new ClassPathXmlApplicationContext("aop.xml");
         MyService myService = (MyService) context.getBean("myService");
         int intValue = myService.getIntValue();
+        myService.getDoubleValue();
 
 
     }
