@@ -8,7 +8,7 @@ public class Start {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("aop.xml");
         MyService myService = (MyService) context.getBean("myService");
-        int intValue = myService.getIntValue();
+        int intValue = myService.getIntValue(8);
         myService.getDoubleValue();
 
 

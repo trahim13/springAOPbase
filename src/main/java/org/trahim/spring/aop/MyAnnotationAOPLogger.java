@@ -22,8 +22,9 @@ public class MyAnnotationAOPLogger {
     }
 
 
-    @AfterReturning(pointcut = "myPointcut()", returning = "o")
-    public void getVal(Object o) {
+    @AfterReturning(pointcut = "myPointcut() && execution(int *(int))&& args(value)", returning = "o")
+    public void getVal(Object o, int value) {
+        System.out.println(value);
         System.out.println(o);
     }
 }

@@ -7,8 +7,8 @@ import org.trahim.spring.aop.annotations.ShowInt;
 @Component
 public class MyService {
     @ShowInt
-    public int getIntValue() {
-        return 5;
+    public int getIntValue(int value) {
+        return value*2;
     }
 
     @ShowDouble
