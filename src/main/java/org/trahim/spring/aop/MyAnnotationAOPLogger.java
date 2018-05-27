@@ -11,7 +11,7 @@ public class MyAnnotationAOPLogger {
     private void myPointcut() {
     }
 
-    @Before("myPointcut() &&@annotation(org.trahim.spring.aop.annotations.ShowDouble)")
+    @Before("myPointcut() &&@annotation(org.trahim.spring.aop.annotations.ShowDouble) && execution(double *(..))")
     public void printBefore() {
         System.out.println("Print before");
     }
